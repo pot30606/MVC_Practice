@@ -2,45 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace MVC_Practice.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : Controller
     {
-        // GET: api/Customer
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly Service.Interface.IProductService _productService;
+        public  ProductController(Service.Interface.IProductService productService)
         {
-            return new string[] { "value1", "value2" };
+            _productService = productService;
         }
 
-        // GET: api/Customer/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST: api/Customer
-        [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Index()
         {
-        }
-
-        // PUT: api/Customer/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var products = _productService.GetAll();
+            return View(products);
         }
     }
 }

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Practice", "MVC_Practice\MVC_Practice.csproj", "{B6878118-BA2A-4C29-A654-B91EAB3F647B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC_Practice", "MVC_Practice\MVC_Practice.csproj", "{B6878118-BA2A-4C29-A654-B91EAB3F647B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{E4AC7B71-0BFE-4C46-84F4-DFC6479C264B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{E4AC7B71-0BFE-4C46-84F4-DFC6479C264B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{AF314EBD-B9C2-4683-AC20-B1E1E4ACE7AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{AF314EBD-B9C2-4683-AC20-B1E1E4ACE7AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{7534B3E8-2C0B-4C8F-9F34-A08BB156E224}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{7534B3E8-2C0B-4C8F-9F34-A08BB156E224}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
