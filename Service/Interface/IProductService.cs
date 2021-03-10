@@ -9,9 +9,9 @@ namespace Service.Interface
     {
         public IEnumerable<ProductModel> GetAll();
         public ProductModel GetProduct(int id);
-        public bool CreateProduct(Models.ProductModel products);
+        public int CreateProduct(Models.ProductModel products);
 
         public bool Delete(int id);
-        public bool Update(int id);
+        public int Update(Models.ProductModel products);
     }
 }

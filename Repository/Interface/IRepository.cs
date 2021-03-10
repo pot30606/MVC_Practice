@@ -9,9 +9,9 @@ namespace Repository.Interface
     {
         TKey Create(TEntity entity);
 
-        void Update(TEntity entity);
+        int Update(TEntity entity);
 
-        void Delete(TKey id);
+        bool Delete(TKey id);
 
         TEntity FindById(TKey id);
 

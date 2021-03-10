@@ -14,30 +14,51 @@ namespace Service
             _productRepository = productRepository;
         }
 
-
-        public bool CreateProduct(Models.ProductModel products)
+        /// <summary>
+        /// 建立產品資料
+        /// </summary>
+        /// <param name="products">產品資料</param>
+        /// <returns>產品ID</returns>
+        public int CreateProduct(Models.ProductModel products)
         {
-            throw new NotImplementedException();
+            return _productRepository.Create(products);
         }
 
+        /// <summary>
+        /// 刪除產品
+        /// </summary>
+        /// <param name="id">產品ID</param>
+        /// <returns>是否成功</returns>
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.Delete(id);
         }
-
+        /// <summary>
+        /// 取得所有產品
+        /// </summary>
+        /// <returns>所有產品</returns>
         public IEnumerable<ProductModel> GetAll()
         {
             return _productRepository.FindAll();
         }
-
+        /// <summary>
+        /// 取得產品資料
+        /// </summary>
+        /// <param name="id">產品ID</param>
+        /// <returns>產品資料</returns>
         public ProductModel GetProduct(int id)
         {
-            throw new NotImplementedException();
+            return _productRepository.FindById(id);
         }
 
-        public bool Update(int id)
+        /// <summary>
+        /// 更新產品資料
+        /// </summary>
+        /// <param name="products">產品資料</param>
+        /// <returns>產品ID</returns>
+        public int Update(Models.ProductModel products)
         {
-            throw new NotImplementedException();
+            return _productRepository.Update(products);
         }
     }
 }

@@ -28,27 +28,30 @@ namespace MVC_Practice.Controllers
 
         // GET: api/Product/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public ProductModel Get(int id)
         {
-            return "value";
+            return _productService.GetProduct(id);
         }
 
         // POST: api/Product
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int Create([FromBody] ProductModel product)
         {
+            return _productService.CreateProduct(product);
         }
 
         // PUT: api/Product/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public int Put([FromBody] ProductModel product)
         {
+            return _productService.Update(product);
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+            return _productService.Delete(id);
         }
     }
 }

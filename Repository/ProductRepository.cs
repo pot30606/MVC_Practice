@@ -16,34 +16,64 @@ namespace Repository
             _context = context;
         }
 
+        /// <summary>
+        /// 建立產品資料
+        /// </summary>
+        /// <param name="entity">產品資料</param>
+        /// <returns>產品ID</returns>
         public int Create(ProductModel entity)
         {
-            throw new NotImplementedException();
+            return _context.Products.Add(entity).Entity.ProductID;
         }
 
-        public void Delete(int id)
+        /// <summary>
+        /// 刪除產品資料
+        /// </summary>
+        /// <param name="id">產品編號</param>
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var product = _context.Products.Where((x)=>x.ProductID == id).FirstOrDefault();
+            _context.Remove(product);
+            return true;
         }
 
+        /// <summary>
+        /// 查詢產品資料
+        /// </summary>
+        /// <param name="expression">查詢條件(Lambda 運算式)</param>
+        /// <returns>符合條件的產品資料</returns>
         public IEnumerable<ProductModel> Find(Expression<Func<ProductModel, bool>> expression)
         {
             return _context.Products.Where(expression);
         }
 
+        /// <summary>
+        /// 查詢所有產品資料
+        /// </summary>
+        /// <returns>所有產品資料</returns>
         public IEnumerable<ProductModel> FindAll()
         {
             return _context.Products;
         }
 
+        /// <summary>
+        /// 查詢特定產品
+        /// </summary>
+        /// <param name="id">產品ID</param>
+        /// <returns>產品資料</returns>
         public ProductModel FindById(int id)
         {
-            throw new NotImplementedException();
+            return _context.Products.Where((x) => x.ProductID == id).FirstOrDefault();
         }
 
-        public void Update(ProductModel entity)
+        /// <summary>
+        /// 更新產品資料
+        /// </summary>
+        /// <param name="entity">產品資料</param>
+        /// <returns>產品ID</returns>
+        public int Update(ProductModel entity)
         {
-            throw new NotImplementedException();
+            return _context.Products.Update(entity).Entity.ProductID;
         }
     }
 }
