@@ -20,7 +20,7 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public bool Delete(string id)
+        public bool Delete(int id)
         {
             throw new NotImplementedException();
         }
@@ -30,12 +30,12 @@ namespace Service
             return _productRepository.FindAll();
         }
 
-        public ProductModel GetProduct(string id)
+        public ProductModel GetProduct(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(string id)
+        public bool Update(int id)
         {
             throw new NotImplementedException();
         }

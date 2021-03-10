@@ -21,5 +21,10 @@ namespace MVC_Practice.Controllers
             var products = _productService.GetAll();
             return View(products);
         }
+        public IActionResult Details(int id)
+        {
+            var product = _productService.GetProduct(id);
+            return View(product);
+        }
     }
 }

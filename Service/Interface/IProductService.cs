@@ -8,10 +8,10 @@ namespace Service.Interface
     public interface IProductService
     {
         public IEnumerable<ProductModel> GetAll();
-        public ProductModel GetProduct(string id);
+        public ProductModel GetProduct(int id);
         public bool CreateProduct(Models.ProductModel products);
 
-        public bool Delete(string id);
-        public bool Update(string id);
+        public bool Delete(int id);
+        public bool Update(int id);
     }
 }
