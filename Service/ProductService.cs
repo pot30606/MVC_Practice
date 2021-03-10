@@ -3,13 +3,14 @@ using Repository;
 using Service.Interface;
 using System;
 using System.Collections.Generic;
+using Repository.Interface;
 
 namespace Service
 {
     public class ProductService : IProductService
     {
-        private readonly ProductRepository _productRepository;
-        public  ProductService(ProductRepository productRepository)
+        private readonly IRepository<ProductModel, int> _productRepository;
+        public  ProductService(IRepository<ProductModel, int> productRepository)
         {
             _productRepository = productRepository;
         }

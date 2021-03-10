@@ -31,7 +31,7 @@ namespace MVC_Practice
             services.AddDbContext<MyDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IProductService, ProductService>();
-            services.AddTransient<ProductRepository, ProductRepository>();
+            services.AddTransient<IRepository<ProductModel,  int>, ProductRepository>();
 
 
             services.AddControllersWithViews();
