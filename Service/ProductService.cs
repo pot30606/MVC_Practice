@@ -4,6 +4,7 @@ using Service.Interface;
 using System;
 using System.Collections.Generic;
 using Repository.Interface;
+using Models.ViewModel;
 
 namespace Service
 {
@@ -38,18 +39,35 @@ namespace Service
         /// 取得所有產品
         /// </summary>
         /// <returns>所有產品</returns>
-        public IEnumerable<ProductModel> GetAll()
+        public IEnumerable<ProductViewModel> GetAll()
         {
-            return _productRepository.FindAll();
+            List<ProductViewModel> productsViewModel = new List<ProductViewModel>();
+            foreach ( var product in _productRepository.FindAll())
+            {
+                productsViewModel.Add(new ProductViewModel()
+                {
+                    ProductID = product.ProductID,
+                    ProductName = product.ProductName,
+                    UnitPrice = product.UnitPrice
+                });
+            }
+            return productsViewModel;
         }
         /// <summary>
         /// 取得產品資料
         /// </summary>
         /// <param name="id">產品ID</param>
         /// <returns>產品資料</returns>
-        public ProductModel GetProduct(int id)
+        public ProductViewModel GetProduct(int id)
         {
-            return _productRepository.FindById(id);
+            var product = _productRepository.FindById(id);
+            var productViewModel = new ProductViewModel()
+            {
+                ProductID = product.ProductID,
+                ProductName = product.ProductName,
+                UnitPrice = product.UnitPrice
+            };
+            return productViewModel;
         }
 
         /// <summary>
