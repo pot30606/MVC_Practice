@@ -5,13 +5,14 @@ using System;
 using System.Collections.Generic;
 using Repository.Interface;
 using Models.ViewModel;
+using System.Transactions;
 
 namespace Service
 {
     public class ProductService : IProductService
     {
         private readonly IRepository<ProductModel, int> _productRepository;
-        public  ProductService(IRepository<ProductModel, int> productRepository)
+        public ProductService(IRepository<ProductModel, int> productRepository)
         {
             _productRepository = productRepository;
         }
@@ -42,7 +43,7 @@ namespace Service
         public IEnumerable<ProductViewModel> GetAll()
         {
             List<ProductViewModel> productsViewModel = new List<ProductViewModel>();
-            foreach ( var product in _productRepository.FindAll())
+            foreach (var product in _productRepository.FindAll())
             {
                 productsViewModel.Add(new ProductViewModel()
                 {
@@ -77,7 +78,21 @@ namespace Service
         /// <returns>產品ID</returns>
         public int Update(Models.ProductModel products)
         {
-            return _productRepository.Update(products);
+            int intProductId = -1;
+            TransactionScope tranScope = new TransactionScope();
+            try
+            {
+                intProductId = _productRepository.Update(products);
+                //Todo:顧客扣款
+                tranScope.Complete();
+            }
+            catch (Exception ex) {
+                //Todo:回報問題
+                
+
+            };
+            return intProductId;
+
         }
     }
 }
